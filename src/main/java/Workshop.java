@@ -278,7 +278,8 @@ public class Workshop {
     public boolean validarCorreoElectronico(String correo) {
         // TODO: Implementar el método para validar un correo electrónico.
         // Ejemplo: Si correo = "test@example.com", el resultado debería ser true.
-        return false;
+        if (correo == null) return false;
+	return correo.contains("@") && correo.contains(".");
     }
 
     // Método que calcula el promedio de una lista de números
