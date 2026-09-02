@@ -262,7 +262,8 @@ public class Workshop {
     public String reemplazarSubcadena(String cadena, String antiguaSubcadena, String nuevaSubcadena) {
         // TODO: Implementar el método para reemplazar una subcadena en una cadena por otra subcadena.
         // Ejemplo: Si cadena = "Hello Java", antiguaSubcadena = "Java", y nuevaSubcadena = "world", el resultado debería ser "Hello world".
-        return "";
+        if (cadena == null || antiguaSubcadena == null || nuevaSubcadena == null) return "";
+	return cadena.replace(antiguaSubcadena, nuevaSubcadena);
     }
 
     // Método que busca una subcadena en una cadena y retorna su índice
