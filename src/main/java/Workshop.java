@@ -1,3 +1,5 @@
+package Taller_POO1.src.main.java;
+
 import java.util.List;
 
 public class Workshop {
@@ -17,8 +19,12 @@ public class Workshop {
     public int mayorDeTresNumeros(int a, int b, int c) {
         // TODO: Implementar el método para retornar el mayor de los tres números enteros.
         // Ejemplo: Si a = 3, b = 7, y c = 5, el resultado debería ser 7.
-      if (a>= b && a >=c) return a;
-    if (b>=c) return b;  
+      if (a >= b && a >= c) {
+          return a;
+      }
+      if (b >= c) {
+          return b;
+      }
       return c;
     }
 
@@ -27,7 +33,7 @@ public class Workshop {
         // TODO: Implementar el método para retornar la tabla de multiplicar del número dado.
         // Ejemplo: Si numero = 2 y limite = 5, el resultado debería ser [2, 4, 6, 8, 10].
         int[] tabla = new int[limite];
-	for (int i=0; i < limite; i++) {
+	for (int i = 0; i < limite; i++) {
 		tabla[i] = numero * (i + 1);
 	}
 	return tabla;
@@ -40,9 +46,9 @@ public class Workshop {
         // Lanzar IllegalArgumentException si n es negativo.
         if (n < 0) {
 		throw new IllegalArgumentException("El número no puede ser negativo");
-	}
-	int resultado = 1;
-	for (int i=1; 1 <= n; i++) {
+	    }
+	    int resultado = 1;
+	    for (int i = 1; i <= n; i++) {
 		resultado *= i;
 	}
 	return resultado;
@@ -53,14 +59,14 @@ public class Workshop {
         // TODO: Implementar el método para verificar si un número es primo.
         // Ejemplo: Si numero = 7, el resultado debería ser true.
         if (numero <= 1) {
-		return false;
-	}
-	for (int i = 2; i * i <= numero; i++) {
-		if (numero % i == 0) {
-			return false;
-		}
-	}
-	return true;
+		    return false;
+	    }
+	    for (int i = 2; i * i <= numero; i++) {
+		    if (numero % i == 0) {
+			    return false;
+		    }
+	    }
+	    return true;
     }
 
     // Método que genera una serie de Fibonacci
@@ -69,20 +75,19 @@ public class Workshop {
         // Ejemplo: Si n = 5, el resultado debería ser [0, 1, 1, 2, 3].
         // Lanzar IllegalArgumentException si n es negativo.
          if (n < 0) {
-		throw new IllegalArgumentException("El número no puede ser negativo");
-	}
-	if (n == 0) {
-		return new int[0];
-	}
+		    throw new IllegalArgumentException("El número no puede ser negativo");
+	    }
+	    if (n == 0) {
+		    return new int[0];
+	    }
+        int[] fib = new int[n];
+	    if (n >= 1) fib[0] = 0;
+	    if (n >= 2) fib[1] = 1;
 
-	int[] fib = new int[0];
-	if (n >= 1) fib[0] = 0;
-	if (n >= 2) fib[1] = 1;
-
-	for (int i = 2; i < n; i++) {
-		fib[i] = fib[i - 1] + fib[i - 2];
-	}
-	return fib;
+	    for (int i = 2; i < n; i++) {
+		    fib[i] = fib[i - 1] + fib[i - 2];
+	    }
+	    return fib;
     }
 
     // Método que suma todos los elementos de un arreglo
@@ -101,11 +106,11 @@ public class Workshop {
         // TODO: Implementar el método para calcular el promedio de los elementos de un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser 3.0.
         if (arreglo.length == 0) return 0.0;
-	int suma = 0;
-	for (int num : arreglo) {
-		suma += num;
-	}
-	return (double) suma / arreglo.length;
+	    int suma = 0;
+	    for (int num : arreglo) {
+		    suma += num;
+	    }
+	    return (double) suma / arreglo.length;
     }
 
     // Método que encuentra el elemento mayor en un arreglo
@@ -229,8 +234,9 @@ public class Workshop {
         // TODO: Implementar el método para verificar si una cadena es un palíndromo.
         // Ejemplo: Si cadena = "madam", el resultado debería ser true.
         if (cadena == null) return false;
-	String invertida = new StringBuilder(cadena).reverse().toString();
-	return cadena.equalsIgnoreCase(invertida);
+        String limpia = cadena.replaceAll("\\s+", "").toLowerCase();
+	    String invertida = new StringBuilder(limpia).reverse().toString();
+	    return limpia.equals(invertida);
     }
 
     // Método que cuenta el número de palabras en una cadena
@@ -279,7 +285,9 @@ public class Workshop {
         // TODO: Implementar el método para validar un correo electrónico.
         // Ejemplo: Si correo = "test@example.com", el resultado debería ser true.
         if (correo == null) return false;
-	return correo.contains("@") && correo.contains(".");
+	    int arroba = correo.indexOf('@');
+        int punto = correo.lastIndexOf('.');
+        return arroba > 0 && punto > arroba + 1 && punto < correo.length() -1;
     }
 
     // Método que calcula el promedio de una lista de números
